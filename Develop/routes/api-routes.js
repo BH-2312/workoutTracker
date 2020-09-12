@@ -33,15 +33,19 @@ router.get("/api/workouts/range", (req, res) => {
 });
 
 router.put("/api/workouts/:id", (req, res) => {
-    let id = req.params.id;
-    let addedExercise = req.body;
+    console.log(req.params.id);
+    console.log(req.body);
+    const id = req.params.id;
+    const {duration} = req.body;
+    console.log(duration)
     db.Workout.findByIdAndUpdate(
         id, {
-        $push: { exercises: addedExercise },
-        $inc: { totalDuration: addedExercise.duration }
+        $push: { exercises: req.body },
+        $inc: { totalDuration: duration }
     }, {
         new: true
     }).then(dbWorkout => {
+        console.log ("Db updated")
         res.json(dbWorkout);
     }).catch(error => {
         console.error(error);
