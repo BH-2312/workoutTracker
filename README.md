@@ -24,7 +24,7 @@ The user must first create a workout. Once a workout is started, either resistan
 
 ## Screenshots
 
-![add exercise](develop/public/img/addExercise.png)
+![add exercise](./public/img/addExercise.png)
 
 ## License
 
